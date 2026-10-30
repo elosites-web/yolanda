@@ -3,6 +3,18 @@
  * Protótipo comercial desenvolvido por ēloSites
  */
 
+// Importação de imagens processadas pelo Vite para garantir empacotamento em produção
+import heroWebp from '../assets/images/hero_beauty_salon_1793374820652.webp';
+import heroJpg from '../assets/images/hero_beauty_salon_1793374820652.jpg';
+import hairWebp from '../assets/images/hair_styling_care_1793374833783.webp';
+import hairJpg from '../assets/images/hair_styling_care_1793374833783.jpg';
+import nailsWebp from '../assets/images/manicure_nail_art_1793374835047.webp';
+import nailsJpg from '../assets/images/manicure_nail_art_1793374835047.jpg';
+import ambianceWebp from '../assets/images/salon_ambiance_details_1793374835178.webp';
+import ambianceJpg from '../assets/images/salon_ambiance_details_1793374835178.jpg';
+import ritualWebp from '../assets/images/beauty_treatment_ritual_1793374836134.webp';
+import ritualJpg from '../assets/images/beauty_treatment_ritual_1793374836134.jpg';
+
 export interface ServiceItem {
   id: string;
   name: string;
@@ -49,6 +61,7 @@ export const SALON_INFO = {
     cep: "13214-220",
     full: "Rua Dr. Cândido Mojola, 380 – Vila Hortolândia, Jundiaí – SP, CEP 13214-220",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+Dr.+C%C3%A2ndido+Mojola%2C+380+%E2%80%93+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+%E2%80%93+SP%2C+CEP+13214-220",
+    wazeUrl: "https://waze.com/ul?q=Rua%20Dr.%20C%C3%A2ndido%20Mojola%2C%20380%20%E2%80%93%20Vila%20Hortol%C3%A2ndia%2C%20Jundia%C3%AD%20%E2%80%93%20SP%2C%20CEP%2013214-220&navigate=yes",
     embedMapUrl: "https://maps.google.com/maps?q=Rua+Dr.+C%C3%A2ndido+Mojola%2C+380+-+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+-+SP%2C+13214-220&t=&z=15&ie=UTF8&iwloc=&output=embed",
   },
   whatsapp: {
@@ -76,18 +89,18 @@ export const getWhatsAppUrl = (): string => {
   )}`;
 };
 
-// Imagens otimizadas em WebP com preservação dos arquivos originais
+// Imagens otimizadas processadas e empacotadas pelo Vite
 export const SALON_IMAGES = {
-  hero: "/src/assets/images/hero_beauty_salon_1793374820652.webp",
-  heroJpg: "/src/assets/images/hero_beauty_salon_1793374820652.jpg",
-  hair: "/src/assets/images/hair_styling_care_1793374833783.webp",
-  hairJpg: "/src/assets/images/hair_styling_care_1793374833783.jpg",
-  nails: "/src/assets/images/manicure_nail_art_1793374835047.webp",
-  nailsJpg: "/src/assets/images/manicure_nail_art_1793374835047.jpg",
-  ambiance: "/src/assets/images/salon_ambiance_details_1793374835178.webp",
-  ambianceJpg: "/src/assets/images/salon_ambiance_details_1793374835178.jpg",
-  ritual: "/src/assets/images/beauty_treatment_ritual_1793374836134.webp",
-  ritualJpg: "/src/assets/images/beauty_treatment_ritual_1793374836134.jpg",
+  hero: heroWebp,
+  heroJpg: heroJpg,
+  hair: hairWebp,
+  hairJpg: hairJpg,
+  nails: nailsWebp,
+  nailsJpg: nailsJpg,
+  ambiance: ambianceWebp,
+  ambianceJpg: ambianceJpg,
+  ritual: ritualWebp,
+  ritualJpg: ritualJpg,
 };
 
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
@@ -291,9 +304,9 @@ export const EXPERIENCE_PILLARS: ExperiencePillar[] = [
 
 export const FREQUENT_QUESTIONS = [
   {
-    question: "Como funciona a definição de horários e agendamentos?",
+    question: "Como consultar os horários e agendar um atendimento?",
     answer:
-      "Os atendimentos e consultas de disponibilidade podem ser solicitados diretamente pelo WhatsApp oficial (11) 94689-1124. Na publicação definitiva, o canal de atendimento estará totalmente integrado à rotina do salão.",
+      "A consulta de horários e a disponibilidade de atendimento podem ser verificadas diretamente pelo WhatsApp oficial (11) 94689-1124. Como a grade de funcionamento está sendo definida pela cliente, o contato direto assegura um alinhamento ágil e personalizado.",
   },
   {
     question: "Os serviços apresentados já estão confirmados?",
@@ -306,9 +319,9 @@ export const FREQUENT_QUESTIONS = [
       "O endereço confirmado é na Rua Dr. Cândido Mojola, 380 – Vila Hortolândia, Jundiaí – SP, CEP 13214-220, com localização de fácil acesso no bairro.",
   },
   {
-    question: "O atendimento é realizado com horário marcado?",
+    question: "Quais são os dias e horários de funcionamento do salão?",
     answer:
-      "A proposta do espaço é priorizar agendamentos com horário marcado para garantir conforto, atenção plena e tranquilidade durante todo o atendimento.",
+      "A programação oficial de dias e horários de funcionamento será confirmada pela cliente na publicação definitiva. Atualmente, você pode consultar a disponibilidade e agendar seu horário diretamente pelo WhatsApp oficial.",
   },
 ];
 

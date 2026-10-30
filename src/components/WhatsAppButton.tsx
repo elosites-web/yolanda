@@ -1,25 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { getWhatsAppUrl } from '../data/salonData';
 
+export interface WhatsAppButtonProps {
+  isProposalOpen?: boolean;
+}
+
 /**
  * Botão Flutuante Oficial do WhatsApp
  * - Aparição suave após exatamente 60 segundos de permanência do visitante
- * - Direcionamento nativo e direto para wa.me com o número e mensagem confirmados
+ * - Ocultação imediata e completa durante a exibição do modal de apresentação comercial (ProposalModal)
+ * - Reaparecimento suave de 600ms após o fechamento do modal (caso os 60s já tenham se esgotado)
+ * - Temporizador único e independente iniciado no carregamento inicial da página
  * - Totalmente responsivo, acessível e compatível com safe-area
  */
-export const WhatsAppButton: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
+export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ isProposalOpen = false }) => {
+  const [timerPassed, setTimerPassed] = useState(false);
 
-  // Temporizador de exatamente 60 segundos (1 minuto) após o carregamento inicial
+  // Temporizador único de 60 segundos iniciado apenas uma vez no carregamento inicial
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(true);
+      setTimerPassed(true);
     }, 60000);
 
     return () => {
       clearTimeout(timer);
     };
   }, []);
+
+  // O botão só fica efetivamente visível se o tempo tiver completado E o modal comercial estiver fechado
+  const isVisible = timerPassed && !isProposalOpen;
 
   const whatsappUrl = getWhatsAppUrl();
 

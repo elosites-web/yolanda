@@ -65,7 +65,7 @@ export default function App() {
       <BackToTop />
 
       {/* Botão Flutuante Oficial de Contato via WhatsApp */}
-      <WhatsAppButton />
+      <WhatsAppButton isProposalOpen={isProposalOpen} />
     </div>
   );
 }

@@ -65,33 +65,58 @@ export const Location: React.FC = () => {
                 </p>
               </div>
 
-              {/* Botões de Ação para o Endereço */}
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <a
-                  href={SALON_INFO.address.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 px-5 py-3 text-xs uppercase tracking-wider font-sans font-semibold text-white bg-[#7A5E3B] hover:bg-[#634b2e] rounded-full shadow-xs transition-colors flex items-center justify-center gap-2"
-                >
-                  <Navigation className="w-4 h-4" />
-                  <span>Como Chegar</span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-                </a>
+              {/* Botões de Ação para Navegação GPS e Endereço */}
+              <div className="mt-6 flex flex-col gap-2.5">
+                {/* Opções de Navegação GPS: Google Maps e Waze lado a lado em telas sm+ */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <a
+                    href={SALON_INFO.address.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-3 text-xs uppercase tracking-wider font-sans font-semibold text-white bg-[#7A5E3B] hover:bg-[#634b2e] rounded-full shadow-xs transition-colors flex items-center justify-center gap-2 focus:outline-hidden focus:ring-2 focus:ring-[#C5A880]"
+                    title="Traçar rota no Google Maps"
+                  >
+                    <Navigation className="w-4 h-4 shrink-0" />
+                    <span>Como Chegar</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-70 shrink-0" />
+                  </a>
 
+                  <a
+                    href={SALON_INFO.address.wazeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-3 text-xs uppercase tracking-wider font-sans font-semibold text-[#5E4834] hover:text-[#2A2421] bg-[#F3EDE2] hover:bg-[#EAE0D5] border border-[#C5A880]/60 hover:border-[#9E7D53] rounded-full shadow-xs transition-colors flex items-center justify-center gap-2 focus:outline-hidden focus:ring-2 focus:ring-[#C5A880]"
+                    title="Navegar com Waze"
+                  >
+                    {/* Ícone oficial vetorial do Waze */}
+                    <svg
+                      className="w-4 h-4 shrink-0 fill-current"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path d="M19.824 10.963c-.114-4.858-4.045-8.777-8.917-8.777-4.922 0-8.911 3.999-8.911 8.932 0 1.258.261 2.459.734 3.547L1.6 18.243c-.22.617.34 1.229.96 1.056l3.666-1.026a8.918 8.918 0 004.681 1.339c.646 0 1.277-.07 1.884-.2l.006-.002a2.983 2.983 0 002.822 1.99c1.654 0 2.995-1.341 2.995-2.995 0-.083-.008-.163-.016-.244.757-.591 1.4-1.314 1.88-2.146.902-1.56 1.39-3.327 1.346-5.052zm-12.33 1.545a1.498 1.498 0 110-2.995 1.498 1.498 0 010 2.995zm5.989 0a1.498 1.498 0 110-2.995 1.498 1.498 0 010 2.995zm2.495 3.493c-.499.749-1.397 1.248-2.495 1.248s-1.996-.499-2.495-1.248a.748.748 0 111.248-.831c.249.374.699.582 1.247.582s.998-.208 1.247-.582a.749.749 0 111.248.831z" />
+                    </svg>
+                    <span>Abrir no Waze</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-70 shrink-0" />
+                  </a>
+                </div>
+
+                {/* Botão Copiar Endereço */}
                 <button
                   type="button"
                   onClick={handleCopyAddress}
-                  className="px-4 py-3 text-xs font-sans font-medium text-[#7A5E3B] hover:text-[#2A2421] border border-[#C5A880] hover:border-[#7A5E3B] bg-[#F8F5EE] rounded-full transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-4 py-2.5 text-xs font-sans font-medium text-[#7A5E3B] hover:text-[#2A2421] border border-[#C5A880]/70 hover:border-[#7A5E3B] bg-[#FAF8F5] hover:bg-white rounded-full transition-colors flex items-center justify-center gap-2 focus:outline-hidden focus:ring-2 focus:ring-[#C5A880]/50 cursor-pointer"
                 >
                   {copied ? (
                     <>
                       <Check className="w-4 h-4 text-emerald-700" />
-                      <span className="text-emerald-700 font-medium">Copiado!</span>
+                      <span className="text-emerald-700 font-medium">Endereço copiado!</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-4 h-4" />
-                      <span>Copiar Endereço</span>
+                      <span>Copiar Endereço Completo</span>
                     </>
                   )}
                 </button>
@@ -104,7 +129,7 @@ export const Location: React.FC = () => {
                   <span>Contato & Agendamentos</span>
                 </div>
                 <p className="text-[#5E534D] leading-relaxed">
-                  Entre em contato diretamente para consultar horários e agendar seu atendimento:
+                  Consulte a disponibilidade de dias e horários diretamente pelo WhatsApp oficial:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-[11px] text-[#7A5E3B]">
                   <a
@@ -116,10 +141,15 @@ export const Location: React.FC = () => {
                     <Phone className="w-3 h-3 text-[#9E7D53]" />
                     <span>WhatsApp: {SALON_INFO.whatsapp.formatted}</span>
                   </a>
-                  <div className="flex items-center gap-1.5">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:underline"
+                  >
                     <Clock className="w-3 h-3 text-[#9E7D53]" />
-                    <span>Horários com agendamento prévio</span>
-                  </div>
+                    <span>Consultar disponibilidade</span>
+                  </a>
                 </div>
               </div>
             </div>
