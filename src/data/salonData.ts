@@ -1,0 +1,300 @@
+/**
+ * Dados estruturados do Salão da Yolanda
+ * Protótipo comercial desenvolvido por ēloSites
+ */
+
+export interface ServiceItem {
+  id: string;
+  name: string;
+  description: string;
+  tag: string;
+  details?: string[];
+}
+
+export interface ServiceCategory {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  services: ServiceItem[];
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  category: 'cabelos' | 'unhas' | 'ambiente' | 'rituais';
+  categoryLabel: string;
+  image: string;
+  caption: string;
+}
+
+export interface ExperiencePillar {
+  title: string;
+  description: string;
+  iconName: 'Sparkles' | 'Heart' | 'Clock' | 'ShieldCheck' | 'Coffee' | 'Smile';
+}
+
+export const SALON_INFO = {
+  name: "Salão da Yolanda",
+  tagline: "Cuidado, Beleza & Autoestima",
+  heroTitle: "Sua beleza merece um cuidado especial.",
+  heroSubtitle:
+    "Um espaço pensado para valorizar sua beleza, renovar sua autoestima e proporcionar momentos especiais de cuidado.",
+  address: {
+    street: "R. Dr. Cândido Mojola, 378",
+    neighborhood: "Vila Hortolândia",
+    city: "Jundiaí",
+    state: "SP",
+    cep: "13214-220",
+    full: "R. Dr. Cândido Mojola, 378 - Vila Hortolândia, Jundiaí - SP, 13214-220",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=R.+Dr.+C%C3%A2ndido+Mojola%2C+378+-+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+-+SP%2C+13214-220",
+    embedMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.618037320485!2d-46.9064!3d-23.1678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf2697b0000001%3A0x0!2sR.+Dr.+C%C3%A2ndido+Mojola%2C+378+-+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+-+SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000",
+  },
+  whatsapp: {
+    /**
+     * Número oficial no formato internacional (apenas números: DDI + DDD + Número, ex: "5511999999999").
+     * Mantenha como string vazia enquanto a cliente Yolanda não confirmar o número oficial definitivo.
+     */
+    phoneNumber: "",
+    defaultMessage:
+      "Olá! Conheci o Salão da Yolanda pelo site e gostaria de saber mais sobre os serviços e consultar a disponibilidade de horários. Poderiam me ajudar?",
+  },
+  agency: {
+    name: "ēloSites",
+    role: "Estúdio de Desenvolvimento Web",
+    website: "https://elosites.com.br",
+    signature: "Site desenvolvido por ēloSites | Estúdio de Desenvolvimento Web",
+  },
+};
+
+// Imagens geradas com qualidade editorial
+export const SALON_IMAGES = {
+  hero: "/src/assets/images/hero_beauty_salon_1793374820652.jpg",
+  hair: "/src/assets/images/hair_styling_care_1793374833783.jpg",
+  nails: "/src/assets/images/manicure_nail_art_1793374835047.jpg",
+  ambiance: "/src/assets/images/salon_ambiance_details_1793374835178.jpg",
+  ritual: "/src/assets/images/beauty_treatment_ritual_1793374836134.jpg",
+};
+
+export const SERVICE_CATEGORIES: ServiceCategory[] = [
+  {
+    id: "cabelos",
+    title: "Cabelos",
+    subtitle: "Design capilar, cor e regeneração",
+    description:
+      "Técnicas contemporâneas que respeitam a curvatura, textura e saúde natural dos seus fios.",
+    image: SALON_IMAGES.hair,
+    services: [
+      {
+        id: "cortes",
+        name: "Cortes",
+        description: "Cortes personalizados alinhados ao formato do rosto e estilo de vida.",
+        tag: "Visagismo",
+        details: ["Corte com tesoura e acabamento", "Lavagem com massagem craniana suave", "Finalização personalizada"],
+      },
+      {
+        id: "escovas",
+        name: "Escovas",
+        description: "Modelagens duradouras que valorizam movimento, brilho e leveza.",
+        tag: "Modelagem",
+        details: ["Escova lisa com brilho espelhado", "Escova modelada em ondas naturais", "Proteção térmica intensiva"],
+      },
+      {
+        id: "hidratacao",
+        name: "Hidratação",
+        description: "Nutrição e reposição hídrica profunda para fios sedosos e revitalizados.",
+        tag: "Saúde dos Fios",
+        details: ["Cronograma capilar intensivo", "Ampolas de nutrientes concentrados", "Selamento de cutículas"],
+      },
+      {
+        id: "coloracao",
+        name: "Coloração",
+        description: "Cobertura, tonalização e mechas harmoniosas com proteção da fibra.",
+        tag: "Cor & Harmonia",
+        details: ["Mechas e iluminações suaves", "Tonalização preventiva de oxidação", "Retoque de raiz com suavidade"],
+      },
+      {
+        id: "tratamentos",
+        name: "Tratamentos Capilares",
+        description: "Reconstrução proteica, detox do couro cabeludo e cauterização capilar.",
+        tag: "Recuperação",
+        details: ["Reconstrução com queratina vegetal", "Terapia de couro cabeludo", "Acidificação capilar"],
+      },
+    ],
+  },
+  {
+    id: "unhas",
+    title: "Manicure & Pedicure",
+    subtitle: "Elegância e assepsia em cada detalhe",
+    description:
+      "Cuidado delicado para mãos e pés com técnicas de alta durabilidade e acabamento impecável.",
+    image: SALON_IMAGES.nails,
+    services: [
+      {
+        id: "cuidados-unhas",
+        name: "Cuidados com as Unhas",
+        description: "Cutilagem suave, alinhamento técnico e hidratação profunda das cutículas.",
+        tag: "Cuidados Essenciais",
+        details: ["Biossegurança e materiais esterilizados", "Nutrição com óleos essenciais", "Polimento suave"],
+      },
+      {
+        id: "esmaltacao",
+        name: "Esmaltação",
+        description: "Aplicação uniforme de esmaltes convencionais e técnicas de longa duração.",
+        tag: "Acabamento",
+        details: ["Paleta selecionada de tons nudes e clássicos", "Camada extra de brilho e secagem", "Design minimalista"],
+      },
+      {
+        id: "manicure",
+        name: "Manicure",
+        description: "Higienização completa, formato harmonioso e esfoliação leve das mãos.",
+        tag: "Mãos",
+        details: ["Esfoliação suave e massagem relaxante", "Remoção de ressecamento", "Finalização protetora"],
+      },
+      {
+        id: "pedicure",
+        name: "Pedicure",
+        description: "Spa dos pés com hidratação nutritiva, suavização de calosidades e bem-estar.",
+        tag: "Pés",
+        details: ["Imersão aromática relaxante", "Suavização plantar delicada", "Esmaltação e massagem relaxante"],
+      },
+    ],
+  },
+  {
+    id: "beleza",
+    title: "Beleza e Cuidados Pessoais",
+    subtitle: "Harmonia, produção e bem-estar",
+    description:
+      "Serviços dedicados a realçar seus traços singulares para o dia a dia ou ocasiões especiais.",
+    image: SALON_IMAGES.ritual,
+    services: [
+      {
+        id: "cuidados-aparencia",
+        name: "Cuidados com a Aparência",
+        description: "Revitalização e preparação facial para uma pele iluminada e radiante.",
+        tag: "Vitalidade",
+        details: ["Higienização e esfoliação delicada", "Máscara hidratante reconfortante", "Proteção e luminosidade natural"],
+      },
+      {
+        id: "producao-finalizacao",
+        name: "Produção e Finalização",
+        description: "Penteados leves, babyliss solto e finalizações para eventos e celebrações.",
+        tag: "Ocasiões Especiais",
+        details: ["Penteados clássicos e despojados", "Fixação de toque natural", "Toque sofisticado para celebrações"],
+      },
+      {
+        id: "outros-servicos",
+        name: "Outros Serviços de Beleza",
+        description: "Atendimentos e protocolos personalizados definidos sob consulta prévia.",
+        tag: "Sob Consulta",
+        details: ["Montagem de pacotes para dias especiais", "Consultoria de imagem e beleza", "Atendimento sob medida"],
+      },
+    ],
+  },
+];
+
+export const GALLERY_ITEMS: GalleryItem[] = [
+  {
+    id: "g1",
+    title: "Design Capilar & Movimento",
+    category: "cabelos",
+    categoryLabel: "Cabelos",
+    image: SALON_IMAGES.hair,
+    caption: "Fotografia ilustrativa demonstrando corte com caimento leve e iluminação suave.",
+  },
+  {
+    id: "g2",
+    title: "Manicure Minimalista & Nude",
+    category: "unhas",
+    categoryLabel: "Unhas",
+    image: SALON_IMAGES.nails,
+    caption: "Conceito visual de esmaltação refinada com acabamento natural e hidratação.",
+  },
+  {
+    id: "g3",
+    title: "Boutique de Beleza & Espaço Acolhedor",
+    category: "ambiente",
+    categoryLabel: "Ambiente",
+    image: SALON_IMAGES.hero,
+    caption: "Inspiração arquitetônica em tons champagne e materiais nobres para o salão.",
+  },
+  {
+    id: "g4",
+    title: "Detalhes & Produtos Selecionados",
+    category: "ambiente",
+    categoryLabel: "Ambiente",
+    image: SALON_IMAGES.ambiance,
+    caption: "Atenção a cada bancada, florais naturais e cosméticos de excelência.",
+  },
+  {
+    id: "g5",
+    title: "Rituais de Tratamento & Relaxamento",
+    category: "rituais",
+    categoryLabel: "Rituais",
+    image: SALON_IMAGES.ritual,
+    caption: "Espaço reservado para descanso, hidratações profundas e bem-estar integral.",
+  },
+];
+
+export const EXPERIENCE_PILLARS: ExperiencePillar[] = [
+  {
+    title: "Ambiente Acolhedor & Sereno",
+    description:
+      "Arquitetura pensada para relaxamento, iluminação suave, conforto sonoro e aromas reconfortantes.",
+    iconName: "Heart",
+  },
+  {
+    title: "Atendimento com Escuta Atenta",
+    description:
+      "Antes de cada procedimento, uma conversa sincera para compreender seu desejo e sua rotina.",
+    iconName: "Sparkles",
+  },
+  {
+    title: "Rigor em Biossegurança",
+    description:
+      "Esterilização rigorosa de ferramentas, uso de materiais descartáveis e padrões estritos de assepsia.",
+    iconName: "ShieldCheck",
+  },
+  {
+    title: "Tempo Dedicado Sem Pressa",
+    description:
+      "Agendamentos planejados com folga para que cada cliente usufrua de uma experiência calma e única.",
+    iconName: "Clock",
+  },
+  {
+    title: "Café, Chás & Pequenos Mimos",
+    description:
+      "Uma recepção calorosa com seleção de chás especiais, café fresco e água saborizada durante sua visita.",
+    iconName: "Coffee",
+  },
+  {
+    title: "Renovação da Autoestima",
+    description:
+      "Mais do que estética: um momento reservado para você se reconectar consigo mesma e se sentir confiante.",
+    iconName: "Smile",
+  },
+];
+
+export const FREQUENT_QUESTIONS = [
+  {
+    question: "Como funciona a definição de horários e agendamentos?",
+    answer:
+      "Neste protótipo demonstrativo, a agenda ainda não está aberta online. Na versão final do site, será possível agendar diretamente via WhatsApp ou sistema integrado de agenda.",
+  },
+  {
+    question: "Os serviços apresentados já estão confirmados?",
+    answer:
+      "Os serviços listados são sugestões demonstrativas estruturadas para a apresentação comercial da ēloSites. A lista oficial, descrições e valores serão definidos em conjunto com a Yolanda.",
+  },
+  {
+    question: "Onde fica localizado o Salão da Yolanda?",
+    answer:
+      "O endereço confirmado é na R. Dr. Cândido Mojola, 378 - Vila Hortolândia, Jundiaí - SP, 13214-220, com fácil acesso e localização privilegiada no bairro.",
+  },
+  {
+    question: "O salão atende com hora marcada?",
+    answer:
+      "A recomendação do projeto é priorizar horários marcados para garantir exclusividade, atenção plena e conforto durante todo o seu atendimento.",
+  },
+];
