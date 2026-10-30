@@ -75,14 +75,19 @@ export const Services: React.FC = () => {
               {/* Card Destaque da Categoria */}
               <div className="lg:col-span-4 bg-white rounded-2xl overflow-hidden border border-[#E3D4C4] shadow-sm flex flex-col">
                 <div className="relative aspect-4/3 overflow-hidden">
-                  <img
-                    src={currentCategory.image}
-                    alt={currentCategory.title}
-                    className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                  />
+                  <picture>
+                    <source srcSet={currentCategory.image} type="image/webp" />
+                    <img
+                      src={currentCategory.image}
+                      alt={`Referência visual ilustrativa para categoria ${currentCategory.title}`}
+                      className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                      width={1200}
+                      height={896}
+                      referrerPolicy="no-referrer"
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2A2421]/60 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">
                     <span className="text-[11px] font-sans uppercase tracking-widest text-[#EFE6DD]">

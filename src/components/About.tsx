@@ -22,14 +22,19 @@ export const About: React.FC = () => {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* Moldura da imagem principal com arcos elegantes */}
               <div className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-xl border border-[#E3D4C4]">
-                <img
-                  src={SALON_IMAGES.ambiance}
-                  alt="Espaço e detalhes de acolhimento do salão"
-                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                />
+                <picture>
+                  <source srcSet={SALON_IMAGES.ambiance} type="image/webp" />
+                  <img
+                    src={SALON_IMAGES.ambianceJpg}
+                    alt="Referência visual ilustrativa do espaço e detalhes de acolhimento"
+                    className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
+                    width={1200}
+                    height={896}
+                    referrerPolicy="no-referrer"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2A2421]/30 via-transparent to-transparent" />
               </div>
 

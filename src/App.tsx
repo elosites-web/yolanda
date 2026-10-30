@@ -1,5 +1,5 @@
 /**
- * Salão da Yolanda — Protótipo Comercial
+ * Salão Yolanda Lima — Protótipo Comercial
  * Desenvolvido por ēloSites | Estúdio de Desenvolvimento Web
  */
 

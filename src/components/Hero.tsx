@@ -40,13 +40,20 @@ export const Hero: React.FC = () => {
         }}
         className="absolute inset-0 z-0 will-change-transform"
       >
-        <img
-          src={SALON_IMAGES.hero}
-          alt="Ambiente elegante e acolhedor do Salão da Yolanda"
-          className="w-full h-full object-cover object-center brightness-[0.92]"
-          loading="eager"
-          referrerPolicy="no-referrer"
-        />
+        <picture>
+          <source srcSet={SALON_IMAGES.hero} type="image/webp" />
+          <img
+            src={SALON_IMAGES.heroJpg}
+            alt="Referência visual ilustrativa de ambiente acolhedor para o Salão Yolanda Lima"
+            className="w-full h-full object-cover object-center brightness-[0.92]"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            width={1376}
+            height={768}
+            referrerPolicy="no-referrer"
+          />
+        </picture>
         {/* Scrim Gradiente Editorial em Champagne & Nude para Máxima Legibilidade */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/65 to-[#FAF8F5]/30 backdrop-blur-[0.5px]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/85 via-[#FAF8F5]/40 to-transparent" />
@@ -102,7 +109,7 @@ export const Hero: React.FC = () => {
 
           {/* Nota discreta de conceito visual */}
           <div className="mt-12 text-[11px] font-sans text-[#A89582] tracking-wide">
-            <span>Proposta visual para o Salão da Yolanda</span>
+            <span>Proposta visual para o Salão Yolanda Lima</span>
             <span className="mx-2">·</span>
             <span>ēloSites</span>
           </div>

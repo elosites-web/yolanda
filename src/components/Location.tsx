@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SALON_INFO } from '../data/salonData';
+import { SALON_INFO, getWhatsAppUrl } from '../data/salonData';
 import { MapPin, Navigation, Copy, Check, ExternalLink, Clock, Phone, AlertCircle, Compass } from 'lucide-react';
 
 export const Location: React.FC = () => {
@@ -108,7 +108,7 @@ export const Location: React.FC = () => {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-[11px] text-[#7A5E3B]">
                   <a
-                    href={`https://wa.me/${SALON_INFO.whatsapp.phoneNumber}?text=${encodeURIComponent(SALON_INFO.whatsapp.defaultMessage)}`}
+                    href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 hover:underline"
@@ -140,7 +140,7 @@ export const Location: React.FC = () => {
           <div className="lg:col-span-7 bg-[#F4EFEA] rounded-2xl overflow-hidden border border-[#E3D4C4] shadow-xs relative min-h-[380px] lg:min-h-full flex items-center justify-center">
             {showLiveEmbed ? (
               <iframe
-                title="Localização do Salão da Yolanda no Google Maps"
+                title="Localização do Salão Yolanda Lima no Google Maps"
                 src={SALON_INFO.address.embedMapUrl}
                 className="w-full h-full min-h-[380px] border-0"
                 loading="lazy"

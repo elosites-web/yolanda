@@ -1,5 +1,5 @@
 /**
- * Dados estruturados do Salão da Yolanda
+ * Dados estruturados do Salão Yolanda Lima
  * Protótipo comercial desenvolvido por ēloSites
  */
 
@@ -55,24 +55,39 @@ export const SALON_INFO = {
     phoneNumber: "5511946891124",
     formatted: "(11) 94689-1124",
     defaultMessage:
-      "Olá! Conheci o Salão Yolanda Lima pelo site e gostaria de conhecer os serviços e consultar os horários disponíveis. Poderiam me ajudar?",
-    link: "https://wa.me/5511946891124",
+      "Olá! Conheci o Salão Yolanda Lima pelo site e gostaria de agendar um horário. Poderiam me informar os serviços disponíveis e os horários? Obrigado(a)!",
+    link: "https://wa.me/5511946891124?text=Ol%C3%A1!%20Conheci%20o%20Sal%C3%A3o%20Yolanda%20Lima%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio.%20Poderiam%20me%20informar%20os%20servi%C3%A7os%20dispon%C3%ADveis%20e%20os%20hor%C3%A1rios%3F%20Obrigado(a)!",
   },
   agency: {
     name: "ēloSites",
     role: "Estúdio de Desenvolvimento Web",
-    website: "https://elosites.com.br",
+    website: "https://elosites.ia.br",
     signature: "Site desenvolvido por ēloSites | Estúdio de Desenvolvimento Web",
   },
 };
 
-// Imagens geradas com qualidade editorial
+/**
+ * Monta e retorna o link oficial e centralizado wa.me
+ * Codificado com precisão para URL, preservando acentuação e pontuação
+ */
+export const getWhatsAppUrl = (): string => {
+  return `https://wa.me/${SALON_INFO.whatsapp.phoneNumber}?text=${encodeURIComponent(
+    SALON_INFO.whatsapp.defaultMessage
+  )}`;
+};
+
+// Imagens otimizadas em WebP com preservação dos arquivos originais
 export const SALON_IMAGES = {
-  hero: "/src/assets/images/hero_beauty_salon_1793374820652.jpg",
-  hair: "/src/assets/images/hair_styling_care_1793374833783.jpg",
-  nails: "/src/assets/images/manicure_nail_art_1793374835047.jpg",
-  ambiance: "/src/assets/images/salon_ambiance_details_1793374835178.jpg",
-  ritual: "/src/assets/images/beauty_treatment_ritual_1793374836134.jpg",
+  hero: "/src/assets/images/hero_beauty_salon_1793374820652.webp",
+  heroJpg: "/src/assets/images/hero_beauty_salon_1793374820652.jpg",
+  hair: "/src/assets/images/hair_styling_care_1793374833783.webp",
+  hairJpg: "/src/assets/images/hair_styling_care_1793374833783.jpg",
+  nails: "/src/assets/images/manicure_nail_art_1793374835047.webp",
+  nailsJpg: "/src/assets/images/manicure_nail_art_1793374835047.jpg",
+  ambiance: "/src/assets/images/salon_ambiance_details_1793374835178.webp",
+  ambianceJpg: "/src/assets/images/salon_ambiance_details_1793374835178.jpg",
+  ritual: "/src/assets/images/beauty_treatment_ritual_1793374836134.webp",
+  ritualJpg: "/src/assets/images/beauty_treatment_ritual_1793374836134.jpg",
 };
 
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
@@ -199,7 +214,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "cabelos",
     categoryLabel: "Cabelos",
     image: SALON_IMAGES.hair,
-    caption: "Fotografia ilustrativa demonstrando corte com caimento leve e iluminação suave.",
+    caption: "Referência visual conceitual sugerindo harmonia, corte e iluminação suave.",
   },
   {
     id: "g2",
@@ -207,31 +222,31 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: "unhas",
     categoryLabel: "Unhas",
     image: SALON_IMAGES.nails,
-    caption: "Conceito visual de esmaltação refinada com acabamento natural e hidratação.",
+    caption: "Referência visual conceitual para sugestão de esmaltação refinada e acabamento natural.",
   },
   {
     id: "g3",
-    title: "Boutique de Beleza & Espaço Acolhedor",
+    title: "Espaço de Acolhimento & Serenidade",
     category: "ambiente",
     categoryLabel: "Ambiente",
     image: SALON_IMAGES.hero,
-    caption: "Inspiração arquitetônica em tons champagne e materiais nobres para o salão.",
+    caption: "Inspiração estética em tons champagne e materiais acolhedores proposta para o salão.",
   },
   {
     id: "g4",
-    title: "Detalhes & Produtos Selecionados",
+    title: "Atenção a Cada Detalhe",
     category: "ambiente",
     categoryLabel: "Ambiente",
     image: SALON_IMAGES.ambiance,
-    caption: "Atenção a cada bancada, florais naturais e cosméticos de excelência.",
+    caption: "Conceito visual de bancadas organizadas, delicadeza e atmosfera relaxante.",
   },
   {
     id: "g5",
-    title: "Rituais de Tratamento & Relaxamento",
+    title: "Momentos de Cuidado & Relaxamento",
     category: "rituais",
     categoryLabel: "Rituais",
     image: SALON_IMAGES.ritual,
-    caption: "Espaço reservado para descanso, hidratações profundas e bem-estar integral.",
+    caption: "Sugestão visual de momentos de tranquilidade, hidratações e bem-estar pessoal.",
   },
 ];
 
@@ -239,37 +254,37 @@ export const EXPERIENCE_PILLARS: ExperiencePillar[] = [
   {
     title: "Ambiente Acolhedor & Sereno",
     description:
-      "Arquitetura pensada para relaxamento, iluminação suave, conforto sonoro e aromas reconfortantes.",
+      "Conceito planejado para proporcionar tranquilidade, iluminação agradável e uma pausa confortável na rotina.",
     iconName: "Heart",
   },
   {
     title: "Atendimento com Escuta Atenta",
     description:
-      "Antes de cada procedimento, uma conversa sincera para compreender seu desejo e sua rotina.",
+      "Proposta de diálogo prévio para compreender as preferências e a rotina individual de cada cliente.",
     iconName: "Sparkles",
   },
   {
-    title: "Rigor em Biossegurança",
+    title: "Padrões de Cuidado & Assepsia",
     description:
-      "Esterilização rigorosa de ferramentas, uso de materiais descartáveis e padrões estritos de assepsia.",
+      "Diretrizes voltadas às boas práticas de higienização, materiais descartáveis e atenção cuidadosa à saúde.",
     iconName: "ShieldCheck",
   },
   {
     title: "Tempo Dedicado Sem Pressa",
     description:
-      "Agendamentos planejados com folga para que cada cliente usufrua de uma experiência calma e única.",
+      "Sugestão de agendamentos planejados com calma para que cada momento de atendimento seja exclusivo.",
     iconName: "Clock",
   },
   {
-    title: "Café, Chás & Pequenos Mimos",
+    title: "Acolhimento & Hospitalidade",
     description:
-      "Uma recepção calorosa com seleção de chás especiais, café fresco e água saborizada durante sua visita.",
+      "Proposta de recepção gentil e atenciosa, tornando cada visita uma experiência agradável e acolhedora.",
     iconName: "Coffee",
   },
   {
-    title: "Renovação da Autoestima",
+    title: "Valorização da Autoestima",
     description:
-      "Mais do que estética: um momento reservado para você se reconectar consigo mesma e se sentir confiante.",
+      "Mais do que estética: uma experiência pensada para você se reconectar consigo mesma e se sentir confiante.",
     iconName: "Smile",
   },
 ];
@@ -278,21 +293,22 @@ export const FREQUENT_QUESTIONS = [
   {
     question: "Como funciona a definição de horários e agendamentos?",
     answer:
-      "Neste protótipo demonstrativo, a agenda ainda não está aberta online. Na versão final do site, será possível agendar diretamente via WhatsApp.",
+      "Os atendimentos e consultas de disponibilidade podem ser solicitados diretamente pelo WhatsApp oficial (11) 94689-1124. Na publicação definitiva, o canal de atendimento estará totalmente integrado à rotina do salão.",
   },
   {
     question: "Os serviços apresentados já estão confirmados?",
     answer:
-      "Os serviços listados são sugestões demonstrativas estruturadas para a apresentação comercial da ēloSites. A lista oficial, descrições e valores serão definidos em conjunto com a Yolanda.",
+      "Os serviços listados são sugestões demonstrativas estruturadas pela ēloSites para a apresentação da proposta. A relação oficial, descrições definitivas e tabela de valores serão aprovadas em conjunto com a Yolanda.",
   },
   {
     question: "Onde fica localizado o Salão Yolanda Lima?",
     answer:
-      "O endereço confirmado é na Rua Dr. Cândido Mojola, 380 – Vila Hortolândia, Jundiaí – SP, CEP 13214-220, com fácil acesso e localização privilegiada no bairro.",
+      "O endereço confirmado é na Rua Dr. Cândido Mojola, 380 – Vila Hortolândia, Jundiaí – SP, CEP 13214-220, com localização de fácil acesso no bairro.",
   },
   {
-    question: "O salão atende com hora marcada?",
+    question: "O atendimento é realizado com horário marcado?",
     answer:
-      "A recomendação do projeto é priorizar horários marcados para garantir exclusividade, atenção plena e conforto durante todo o seu atendimento.",
+      "A proposta do espaço é priorizar agendamentos com horário marcado para garantir conforto, atenção plena e tranquilidade durante todo o atendimento.",
   },
 ];
+

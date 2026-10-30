@@ -119,12 +119,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal }) => {
 
           {/* Assinatura Requerida pela ēloSites */}
           <div className="text-center md:text-right font-medium text-[#7A5E3B]">
-            <span>{SALON_INFO.agency.signature}</span>
+            <a
+              href={SALON_INFO.agency.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#2A2421] transition-colors"
+            >
+              {SALON_INFO.agency.signature}
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Modal LGPD & Termos de Uso */}
+      {/* Modal LGPD & Termos de Uso do Protótipo */}
       {privacyOpen && (
         <div
           role="dialog"
@@ -144,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal }) => {
             <div className="flex items-center gap-2 text-[#9E7D53] mb-2">
               <Shield className="w-4 h-4" />
               <span className="text-xs font-sans uppercase tracking-wider font-semibold">
-                Privacidade & Proteção de Dados (LGPD)
+                Privacidade & Informações Institucionais
               </span>
             </div>
 
@@ -152,26 +159,33 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal }) => {
               Termos e Privacidade do Protótipo
             </h3>
 
-            <div className="mt-4 space-y-3 font-sans text-xs text-[#5E534D] leading-relaxed">
+            <div className="mt-4 space-y-3.5 font-sans text-xs text-[#5E534D] leading-relaxed">
               <p>
-                <strong>1. Natureza do Site:</strong> Esta página é um protótipo visual e
-                comercial desenvolvido pelo estúdio <em>ēloSites</em> com a finalidade de
-                apresentação e demonstração ao <strong>Salão da Yolanda</strong>.
+                <strong>1. Natureza do Protótipo:</strong> Esta página consiste em uma proposta
+                visual e protótipo institucional comercial desenvolvido pelo estúdio{' '}
+                <em>ēloSites</em> para apresentação exclusiva ao <strong>Salão Yolanda Lima</strong>.
               </p>
               <p>
-                <strong>2. Ausência de Coleta de Dados Pessoais:</strong> Este protótipo não realiza
-                coleta de dados cadastrais, informações de pagamento ou cookies invasivos. Qualquer
-                futura funcionalidade de agendamento será implementada sob conformidade estrita com
-                a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).
+                <strong>2. Ausência de Cadastro e Agendamento Automatizado:</strong> Este protótipo
+                não possui sistema automatizado de cadastro, processamento de pagamentos ou coleta
+                indevida de dados pessoais. O canal oficial para esclarecimento de dúvidas e
+                consulta de horários é o WhatsApp direto do salão.
               </p>
               <p>
-                <strong>3. Controlador dos Dados:</strong> Quando o site for publicado
-                oficialmente, o controlador responsável pelos atendimentos e agendamentos será o
-                próprio Salão da Yolanda.
+                <strong>3. Implementação e Funcionalidades Definitivas:</strong> Os recursos,
+                ferramentas de agendamento e políticas definitivas do site serão configurados e
+                validados em conjunto após a aprovação e formalização comercial do projeto.
               </p>
               <p>
-                <strong>4. Propriedade Intelectual:</strong> A identidade visual oficial pertence ao
-                Salão da Yolanda. Estrutura e código do protótipo desenvolvidos pela ēloSites.
+                <strong>4. Propriedade Intelectual:</strong> A arquitetura conceitual e o código do
+                protótipo pertencem à ēloSites. Os direitos de uso e titularidade definitiva serão
+                formalizados contratualmente entre as partes na etapa de contratação.
+              </p>
+              <p>
+                <strong>5. Princípios de Privacidade:</strong> O projeto segue boas práticas de
+                transparência e minimização de dados inspiradas na LGPD (Lei nº 13.709/2018). A
+                conformidade integral do ambiente operacional será estabelecida na publicação
+                definitiva.
               </p>
             </div>
 

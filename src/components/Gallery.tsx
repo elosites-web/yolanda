@@ -104,7 +104,7 @@ export const Gallery: React.FC = () => {
               >
                 <img
                   src={item.image}
-                  alt={item.title}
+                  alt={`Referência ilustrativa: ${item.title}`}
                   className={`absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-108 transition-all duration-700 ${
                     loadedImages[item.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                   }`}
@@ -112,8 +112,8 @@ export const Gallery: React.FC = () => {
                   decoding="async"
                   fetchPriority="low"
                   referrerPolicy="no-referrer"
-                  width={800}
-                  height={800}
+                  width={1200}
+                  height={896}
                   onLoad={() => handleImageLoad(item.id)}
                 />
 
@@ -176,7 +176,7 @@ export const Gallery: React.FC = () => {
             <div className="relative aspect-16/10 sm:aspect-16/9 bg-[#1F1A18] flex items-center justify-center overflow-hidden">
               <img
                 src={currentItem.image}
-                alt={currentItem.title}
+                alt={`Referência ilustrativa ampliada: ${currentItem.title}`}
                 className="max-h-full max-w-full object-contain"
                 loading="lazy"
                 decoding="async"
