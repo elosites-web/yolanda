@@ -11,12 +11,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal }) => {
   const [privacyOpen, setPrivacyOpen] = useState(false);
 
   return (
-    <footer className="bg-[#FAF8F5] border-t border-[#E3D4C4] pt-16 pb-12 text-[#5E534D]">
+    <footer className="bg-[#FAF8F5] border-t border-[#E3D4C4] pt-16 pb-36 sm:pb-32 lg:pb-28 text-[#5E534D] pb-[max(9rem,calc(7.5rem+env(safe-area-inset-bottom,0px)))]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 pb-12 border-b border-[#E3D4C4]">
           {/* Coluna 1: Logo & Propósito */}
           <div className="md:col-span-5 flex flex-col items-start">
-            <Logo variant="horizontal" />
+            <Logo variant="footer" />
             <p className="mt-4 font-sans text-sm text-[#5E534D] leading-relaxed max-w-sm font-light">
               Um refúgio de beleza, cuidado capilar e bem-estar em Jundiaí. Criado para valorizar
               sua singularidade e renovar sua autoestima a cada atendimento.
@@ -106,7 +106,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal }) => {
         {/* Linha Final de Copyright, Assinatura e LGPD */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans text-[#A89582]">
           <div className="text-center md:text-left">
-            <span>© {new Date().getFullYear()} Salão da Yolanda. Todos os direitos reservados.</span>
+            <span>© {new Date().getFullYear()} Salão Yolanda Lima. Todos os direitos reservados.</span>
             <span className="mx-2 hidden sm:inline">·</span>
             <button
               type="button"
@@ -170,8 +170,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal }) => {
                 próprio Salão da Yolanda.
               </p>
               <p>
-                <strong>4. Propriedade Intelectual & Direção Criativa:</strong> Logotipo,
-                monograma e código foram desenvolvidos sob medida pela ēloSites.
+                <strong>4. Propriedade Intelectual:</strong> A identidade visual oficial pertence ao
+                Salão da Yolanda. Estrutura e código do protótipo desenvolvidos pela ēloSites.
               </p>
             </div>
 

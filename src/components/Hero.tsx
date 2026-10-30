@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
         <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-6 duration-700">
           {/* Metadata limpa sem formato de pílula rígida */}
           <div className="flex items-center gap-2 text-xs sm:text-sm font-sans tracking-widest uppercase text-[#7A5E3B] mb-6 font-medium">
-            <span>Salão da Yolanda</span>
+            <span>Salão Yolanda Lima</span>
             <span aria-hidden="true">·</span>
             <span>Jundiaí - SP</span>
             <span aria-hidden="true">·</span>

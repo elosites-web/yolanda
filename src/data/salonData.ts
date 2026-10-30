@@ -36,29 +36,27 @@ export interface ExperiencePillar {
 }
 
 export const SALON_INFO = {
-  name: "Salão da Yolanda",
+  name: "Salão Yolanda Lima",
   tagline: "Cuidado, Beleza & Autoestima",
   heroTitle: "Sua beleza merece um cuidado especial.",
   heroSubtitle:
     "Um espaço pensado para valorizar sua beleza, renovar sua autoestima e proporcionar momentos especiais de cuidado.",
   address: {
-    street: "R. Dr. Cândido Mojola, 378",
+    street: "Rua Dr. Cândido Mojola, 380",
     neighborhood: "Vila Hortolândia",
     city: "Jundiaí",
     state: "SP",
     cep: "13214-220",
-    full: "R. Dr. Cândido Mojola, 378 - Vila Hortolândia, Jundiaí - SP, 13214-220",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=R.+Dr.+C%C3%A2ndido+Mojola%2C+378+-+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+-+SP%2C+13214-220",
-    embedMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.618037320485!2d-46.9064!3d-23.1678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf2697b0000001%3A0x0!2sR.+Dr.+C%C3%A2ndido+Mojola%2C+378+-+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+-+SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000",
+    full: "Rua Dr. Cândido Mojola, 380 – Vila Hortolândia, Jundiaí – SP, CEP 13214-220",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+Dr.+C%C3%A2ndido+Mojola%2C+380+%E2%80%93+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+%E2%80%93+SP%2C+CEP+13214-220",
+    embedMapUrl: "https://maps.google.com/maps?q=Rua+Dr.+C%C3%A2ndido+Mojola%2C+380+-+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+-+SP%2C+13214-220&t=&z=15&ie=UTF8&iwloc=&output=embed",
   },
   whatsapp: {
-    /**
-     * Número oficial no formato internacional (apenas números: DDI + DDD + Número, ex: "5511999999999").
-     * Mantenha como string vazia enquanto a cliente Yolanda não confirmar o número oficial definitivo.
-     */
-    phoneNumber: "",
+    phoneNumber: "5511946891124",
+    formatted: "(11) 94689-1124",
     defaultMessage:
-      "Olá! Conheci o Salão da Yolanda pelo site e gostaria de saber mais sobre os serviços e consultar a disponibilidade de horários. Poderiam me ajudar?",
+      "Olá! Conheci o Salão Yolanda Lima pelo site e gostaria de conhecer os serviços e consultar os horários disponíveis. Poderiam me ajudar?",
+    link: "https://wa.me/5511946891124",
   },
   agency: {
     name: "ēloSites",
@@ -280,7 +278,7 @@ export const FREQUENT_QUESTIONS = [
   {
     question: "Como funciona a definição de horários e agendamentos?",
     answer:
-      "Neste protótipo demonstrativo, a agenda ainda não está aberta online. Na versão final do site, será possível agendar diretamente via WhatsApp ou sistema integrado de agenda.",
+      "Neste protótipo demonstrativo, a agenda ainda não está aberta online. Na versão final do site, será possível agendar diretamente via WhatsApp.",
   },
   {
     question: "Os serviços apresentados já estão confirmados?",
@@ -288,9 +286,9 @@ export const FREQUENT_QUESTIONS = [
       "Os serviços listados são sugestões demonstrativas estruturadas para a apresentação comercial da ēloSites. A lista oficial, descrições e valores serão definidos em conjunto com a Yolanda.",
   },
   {
-    question: "Onde fica localizado o Salão da Yolanda?",
+    question: "Onde fica localizado o Salão Yolanda Lima?",
     answer:
-      "O endereço confirmado é na R. Dr. Cândido Mojola, 378 - Vila Hortolândia, Jundiaí - SP, 13214-220, com fácil acesso e localização privilegiada no bairro.",
+      "O endereço confirmado é na Rua Dr. Cândido Mojola, 380 – Vila Hortolândia, Jundiaí – SP, CEP 13214-220, com fácil acesso e localização privilegiada no bairro.",
   },
   {
     question: "O salão atende com hora marcada?",

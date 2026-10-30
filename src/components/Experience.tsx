@@ -76,7 +76,7 @@ export const Experience: React.FC = () => {
             confiança.&rdquo;
           </p>
           <div className="mt-4 flex items-center justify-center gap-2 text-xs font-sans text-[#7A5E3B] font-medium tracking-wider uppercase">
-            <span>Salão da Yolanda</span>
+            <span>Salão Yolanda Lima</span>
             <span aria-hidden="true">·</span>
             <span>Jundiaí - SP</span>
           </div>

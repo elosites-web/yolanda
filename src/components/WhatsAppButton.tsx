@@ -1,26 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SALON_INFO } from '../data/salonData';
-import { X, Send, CheckCircle2, AlertCircle, ExternalLink, ShieldCheck } from 'lucide-react';
+import { X, Send, AlertCircle, ExternalLink, ShieldCheck } from 'lucide-react';
 
 export const WhatsAppButton: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [testNumber, setTestNumber] = useState('');
+
+  // Temporizador de exatamente 60 segundos (1 minuto) após o carregamento inicial
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 60000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   const configuredPhone = SALON_INFO.whatsapp?.phoneNumber?.trim() || '';
   const message = SALON_INFO.whatsapp?.defaultMessage || '';
 
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (configuredPhone) {
-      // Abre diretamente o WhatsApp oficial com a mensagem codificada
-      const cleanPhone = configuredPhone.replace(/\D/g, '');
-      const encodedMsg = encodeURIComponent(message);
-      const url = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
-      window.open(url, '_blank', 'noopener,noreferrer');
-    } else {
-      // Abre modal demonstrativo elegante informando a preparação do botão
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!configuredPhone) {
+      e.preventDefault();
       setModalOpen(true);
     }
+    // Com configuredPhone definido, deixamos o link nativo wa.me abrir o aplicativo WhatsApp ou WhatsApp Web
   };
 
   const handleTestRedirect = (e: React.FormEvent) => {
@@ -34,8 +40,16 @@ export const WhatsAppButton: React.FC = () => {
 
   return (
     <>
-      {/* Botão Flutuante Fixo no Canto Inferior Direito */}
-      <aside aria-label="Contato direto via WhatsApp" className="fixed bottom-6 right-6 z-50">
+      {/* Botão Flutuante Fixo no Canto Inferior Direito com animação suave após 60 segundos e safe-area */}
+      <aside
+        aria-label="Contato direto via WhatsApp"
+        aria-hidden={!isVisible}
+        className={`fixed bottom-[calc(1.5rem+env(safe-area-inset-bottom,0px))] right-4 sm:right-6 z-50 transition-all duration-[600ms] ease-out motion-reduce:transition-none motion-reduce:transform-none ${
+          isVisible
+            ? 'opacity-100 translate-y-0 pointer-events-auto visible'
+            : 'opacity-0 translate-y-3 pointer-events-none invisible'
+        }`}
+      >
         <a
           href={
             configuredPhone
@@ -43,15 +57,13 @@ export const WhatsAppButton: React.FC = () => {
               : '#whatsapp-config'
           }
           onClick={handleClick}
-          target={configuredPhone ? '_blank' : undefined}
-          rel={configuredPhone ? 'noopener noreferrer' : undefined}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabIndex={isVisible ? 0 : -1}
           className="group relative flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 sm:px-5 py-3.5 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-hidden focus:ring-4 focus:ring-[#25D366]/40 cursor-pointer"
-          title="Agendar via WhatsApp — Salão da Yolanda"
+          title="Agendar via WhatsApp — Salão Yolanda Lima"
           aria-haspopup={!configuredPhone}
         >
-          {/* Efeito de Radar / Pulso Suave */}
-          <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-30 group-hover:opacity-50 animate-ping -z-10" />
-
           {/* Ícone Oficial Vetorial do WhatsApp */}
           <svg
             className="w-5 h-5 sm:w-6 sm:h-6 fill-current shrink-0"

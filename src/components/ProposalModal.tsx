@@ -43,7 +43,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({ isOpen, onClose })
               Apresentação Comercial Exclusiva
             </span>
             <h3 className="font-editorial text-3xl sm:text-4xl text-[#2A2421] font-semibold mt-1">
-              Proposta Visual para o Salão da Yolanda
+              Proposta Visual para o Salão Yolanda Lima
             </h3>
             <p className="mt-3 font-sans text-sm text-[#5E534D] leading-relaxed">
               Olá, Yolanda! Este site foi desenvolvido como um protótipo exclusivo para
@@ -57,10 +57,10 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({ isOpen, onClose })
             <div className="p-4 rounded-xl bg-white border border-[#E3D4C4]">
               <div className="flex items-center gap-2 text-[#7A5E3B] font-medium text-xs mb-1.5">
                 <Sparkles className="w-4 h-4 text-[#9E7D53]" />
-                <span>Identidade Visual SY</span>
+                <span>Identidade Visual YL</span>
               </div>
               <p className="text-xs font-sans text-[#5E534D] leading-relaxed">
-                Monograma exclusivo vetorial em tons champagne, nude e ouro suave.
+                Logotipo oficial completo e monograma YL em acabamento metálico dourado.
               </p>
             </div>
 

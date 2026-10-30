@@ -13,7 +13,7 @@ export const CommercialNoticeBanner: React.FC<CommercialNoticeBannerProps> = ({ 
       <button
         type="button"
         onClick={onOpenProposal}
-        className="fixed bottom-6 left-6 z-40 bg-white/95 backdrop-blur-md text-[#7A5E3B] hover:text-[#2A2421] border border-[#C5A880] px-3.5 py-2 rounded-full shadow-md text-xs font-sans font-medium flex items-center gap-2 hover:shadow-lg transition-all"
+        className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom,0px))] left-4 sm:bottom-6 sm:left-6 z-40 bg-white/95 backdrop-blur-md text-[#7A5E3B] hover:text-[#2A2421] border border-[#C5A880] px-3.5 py-2 rounded-full shadow-md text-xs font-sans font-medium flex items-center gap-2 hover:shadow-lg transition-all"
         title="Abrir apresentação da proposta ēloSites"
       >
         <Sparkles className="w-3.5 h-3.5 text-[#9E7D53]" />
@@ -23,7 +23,7 @@ export const CommercialNoticeBanner: React.FC<CommercialNoticeBannerProps> = ({ 
   }
 
   return (
-    <div className="fixed bottom-6 left-6 max-w-xs sm:max-w-sm z-40 bg-[#FAF8F5]/98 backdrop-blur-md border border-[#C5A880] p-3 sm:p-3.5 rounded-2xl shadow-xl flex items-center justify-between gap-3 animate-in slide-in-from-bottom duration-300">
+    <div className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom,0px))] left-4 sm:bottom-6 sm:left-6 max-w-xs sm:max-w-sm z-40 bg-[#FAF8F5]/98 backdrop-blur-md border border-[#C5A880] p-3 sm:p-3.5 rounded-2xl shadow-xl flex items-center justify-between gap-3 animate-in slide-in-from-bottom duration-300">
       <div className="flex items-center gap-2.5">
         <div className="w-8 h-8 rounded-full bg-[#F3EDE2] text-[#7A5E3B] flex items-center justify-center shrink-0">
           <Sparkles className="w-4 h-4 text-[#9E7D53]" />
@@ -33,7 +33,7 @@ export const CommercialNoticeBanner: React.FC<CommercialNoticeBannerProps> = ({ 
             Protótipo Comercial
           </p>
           <p className="text-xs font-sans text-[#2A2421] font-medium leading-tight mt-1">
-            ēloSites para Salão da Yolanda
+            ēloSites para Salão Yolanda Lima
           </p>
         </div>
       </div>

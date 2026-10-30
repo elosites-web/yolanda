@@ -97,23 +97,28 @@ export const Location: React.FC = () => {
                 </button>
               </div>
 
-              {/* Quadro Informativo de Transparência do Protótipo */}
+              {/* Quadro Informativo Oficial de Atendimento */}
               <div className="mt-8 p-4 rounded-xl bg-[#F8F5EE]/80 border border-[#DBC8B5] text-xs font-sans space-y-2">
                 <div className="flex items-center gap-1.5 text-[#7A5E3B] font-semibold">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>Informações em etapa de alinhamento com a Yolanda</span>
+                  <Phone className="w-4 h-4 shrink-0" />
+                  <span>Contato & Agendamentos</span>
                 </div>
                 <p className="text-[#5E534D] leading-relaxed">
-                  Para manter total fidelidade aos dados reais do salão:
+                  Entre em contato diretamente para consultar horários e agendar seu atendimento:
                 </p>
-                <div className="grid grid-cols-2 gap-2 pt-1 text-[11px] text-[#7A5E3B]">
-                  <div className="flex items-center gap-1.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-[11px] text-[#7A5E3B]">
+                  <a
+                    href={`https://wa.me/${SALON_INFO.whatsapp.phoneNumber}?text=${encodeURIComponent(SALON_INFO.whatsapp.defaultMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:underline"
+                  >
                     <Phone className="w-3 h-3 text-[#9E7D53]" />
-                    <span>WhatsApp: a definir</span>
-                  </div>
+                    <span>WhatsApp: {SALON_INFO.whatsapp.formatted}</span>
+                  </a>
                   <div className="flex items-center gap-1.5">
                     <Clock className="w-3 h-3 text-[#9E7D53]" />
-                    <span>Horários: a confirmar</span>
+                    <span>Horários com agendamento prévio</span>
                   </div>
                 </div>
               </div>
@@ -136,7 +141,7 @@ export const Location: React.FC = () => {
             {showLiveEmbed ? (
               <iframe
                 title="Localização do Salão da Yolanda no Google Maps"
-                src="https://maps.google.com/maps?q=R.+Dr.+C%C3%A2ndido+Mojola%2C+378+-+Vila+Hortol%C3%A2ndia%2C+Jundia%C3%AD+-+SP%2C+13214-220&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src={SALON_INFO.address.embedMapUrl}
                 className="w-full h-full min-h-[380px] border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer"
@@ -177,10 +182,10 @@ export const Location: React.FC = () => {
 
                   <div className="mt-4 bg-white/95 backdrop-blur-md px-5 py-3 rounded-2xl border border-[#C5A880] shadow-md max-w-xs">
                     <p className="font-editorial text-lg text-[#2A2421] font-semibold leading-tight">
-                      Salão da Yolanda
+                      {SALON_INFO.name}
                     </p>
                     <p className="text-xs font-sans text-[#5E534D] mt-0.5">
-                      R. Dr. Cândido Mojola, 378
+                      {SALON_INFO.address.street}
                     </p>
                   </div>
                 </div>

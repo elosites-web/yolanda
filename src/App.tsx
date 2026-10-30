@@ -16,12 +16,17 @@ import { Footer } from './components/Footer';
 import { ProposalModal } from './components/ProposalModal';
 import { CommercialNoticeBanner } from './components/CommercialNoticeBanner';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { ScrollProgressBar } from './components/ScrollProgressBar';
+import { BackToTop } from './components/BackToTop';
 
 export default function App() {
   const [isProposalOpen, setIsProposalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#2A2421] selection:bg-[#EFE6DD] selection:text-[#5E4834]">
+      {/* Barra de Progresso de Rolagem no Topo */}
+      <ScrollProgressBar />
+
       {/* Top Header */}
       <Header onOpenProposal={() => setIsProposalOpen(true)} />
 
@@ -55,6 +60,9 @@ export default function App() {
       {/* Aviso Flutuante e Modal de Apresentação Comercial para Yolanda */}
       <CommercialNoticeBanner onOpenProposal={() => setIsProposalOpen(true)} />
       <ProposalModal isOpen={isProposalOpen} onClose={() => setIsProposalOpen(false)} />
+
+      {/* Botão Flutuante Discreto de Voltar ao Topo */}
+      <BackToTop />
 
       {/* Botão Flutuante Oficial de Contato via WhatsApp */}
       <WhatsAppButton />

@@ -27,6 +27,7 @@ export const About: React.FC = () => {
                   alt="Espaço e detalhes de acolhimento do salão"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                   loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2A2421]/30 via-transparent to-transparent" />
@@ -67,7 +68,7 @@ export const About: React.FC = () => {
             </h2>
 
             <p className="mt-6 font-sans text-base sm:text-lg text-[#5E534D] leading-relaxed font-light">
-              O Salão da Yolanda nasce com a proposta de oferecer um ambiente agradável,
+              O Salão Yolanda Lima nasce com a proposta de oferecer um ambiente agradável,
               cuidadoso e verdadeiramente acolhedor em Jundiaí. Aqui, o cuidado pessoal vai além do
               estético: é um convite para você desacelerar da rotina, relaxar e se reconectar com a
               sua melhor versão.

@@ -32,17 +32,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenProposal }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-out will-change-[background,padding,box-shadow] ${
           scrolled
-            ? 'glass-champagne-scrolled py-3 sm:py-3.5'
-            : 'glass-champagne-top py-4 sm:py-5'
+            ? 'glass-champagne-scrolled py-2 sm:py-2.5'
+            : 'glass-champagne-top py-2.5 sm:py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 lg:gap-5 xl:gap-8">
-          {/* Zone 1: Brand wordmark / Monogram */}
+          {/* Zone 1: Brand Logo Oficial */}
           <a
             href="#inicio"
             className="whitespace-nowrap shrink-0 group focus:outline-hidden focus:ring-2 focus:ring-[#C5A880]/50 rounded-sm"
+            aria-label="Salão Yolanda Lima — Página Inicial"
           >
-            <Logo variant="horizontal" />
+            <Logo variant="header" scrolled={scrolled} />
           </a>
 
           {/* Zone 2: Navigation Links */}
@@ -97,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenProposal }) => {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex flex-col bg-gradient-to-b from-[#FAF8F5]/95 via-[#F8F5EE]/92 to-[#EFE6DD]/96 backdrop-blur-2xl animate-in fade-in duration-300">
           <div className="flex items-center justify-between px-6 py-5 border-b border-[#C5A880]/30 shadow-xs">
-            <Logo variant="compact" />
+            <Logo variant="drawer" />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}

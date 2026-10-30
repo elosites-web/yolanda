@@ -6,6 +6,11 @@ import { Maximize2, X, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 export const Gallery: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'cabelos' | 'unhas' | 'ambiente' | 'rituais'>('all');
   const [activeLightboxIndex, setActiveLightboxIndex] = useState<number | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
+
+  const handleImageLoad = (id: string) => {
+    setLoadedImages((prev) => ({ ...prev, [id]: true }));
+  };
 
   const filteredItems =
     filter === 'all'
@@ -94,15 +99,22 @@ export const Gallery: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="group relative rounded-2xl overflow-hidden bg-white border border-[#E3D4C4] shadow-xs hover:shadow-xl transition-all duration-500 cursor-pointer aspect-4/3 sm:aspect-square flex flex-col justify-end"
+                className="group relative rounded-2xl overflow-hidden bg-[#EFE6DD]/50 border border-[#E3D4C4] shadow-xs hover:shadow-xl transition-all duration-500 cursor-pointer aspect-4/3 sm:aspect-square flex flex-col justify-end"
                 onClick={() => setActiveLightboxIndex(index)}
               >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700"
+                  className={`absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-108 transition-all duration-700 ${
+                    loadedImages[item.id] ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                  }`}
                   loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                   referrerPolicy="no-referrer"
+                  width={800}
+                  height={800}
+                  onLoad={() => handleImageLoad(item.id)}
                 />
 
                 {/* Scrim Gradiente no Hover */}
@@ -166,6 +178,8 @@ export const Gallery: React.FC = () => {
                 src={currentItem.image}
                 alt={currentItem.title}
                 className="max-h-full max-w-full object-contain"
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
 
